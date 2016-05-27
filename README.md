@@ -1,2 +1,2 @@
-# CiudadCruzRojaApi
-Api del juego ciudad Cruz roja. realizado en Node JS
+# Onboarding CR
+Api de la aplicacion Onboarding CR realizado en Node JS
