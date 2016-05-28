@@ -18,7 +18,8 @@ var fs = require('fs'),
 	mongoStore = require('connect-mongo')({session}),
 
 	config = require('./config'),
-	path = require('path');
+	path = require('path'),
+	chalk = require('chalk');
 
 module.exports = function(db) {
 	// Initialize express app
@@ -112,7 +113,8 @@ module.exports = function(db) {
 
 	// Globbing routing files
 	config.getGlobbedFiles('./app/routes/**/*.js').forEach(function(routePath) {
-		require(path.resolve(routePath))(app);
+		console.log(chalk.blue(path.resolve(routePath)));
+		app.use('/api',require(path.resolve(routePath)));
 	});
 
 	// Assume 'not found' in the error msgs is a 404. this is somewhat silly, but valid, you can do whatever you like, set properties, use instanceof etc.

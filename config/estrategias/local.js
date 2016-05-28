@@ -9,13 +9,14 @@ var passport = require('passport'),
 
 module.exports = function() {
 	// Use local strategy
+	console.log("AQUIIIIIIIIIIIIIIIIIIIIIIII");
 	passport.use(new LocalStrategy({
-			usernameField: 'username',
+			usernameField: 'usuario',
 			passwordField: 'password'
 		},
-		function(username, password, done) {
+		function(usuario, password, done) {
 			User.findOne({
-				username: username
+				usuario: usuario
 			}, function(err, user) {
 				if (err) {
 					return done(err);

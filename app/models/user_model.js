@@ -25,21 +25,17 @@ var validateLocalStrategyPassword = function(password) {
  * User Schema
  */
 var UserSchema = new Schema({
-	firstName: {
+	nombre: {
 		type: String,
 		trim: true,
 		default: '',
 		validate: [validateLocalStrategyProperty, 'Please fill in your first name']
 	},
-	lastName: {
+	apellido: {
 		type: String,
 		trim: true,
 		default: '',
 		validate: [validateLocalStrategyProperty, 'Please fill in your last name']
-	},
-	displayName: {
-		type: String,
-		trim: true
 	},
 	email: {
 		type: String,
@@ -48,7 +44,7 @@ var UserSchema = new Schema({
 		validate: [validateLocalStrategyProperty, 'Please fill in your email'],
 		match: [/.+\@.+\..+/, 'Please fill a valid email address']
 	},
-	username: {
+	usuario: {
 		type: String,
 		unique: 'testing error message',
 		required: 'Please fill in a username',
@@ -59,21 +55,14 @@ var UserSchema = new Schema({
 		default: '',
 		validate: [validateLocalStrategyPassword, 'Password should be longer']
 	},
-	salt: {
-		type: String
-	},
-	provider: {
-		type: String,
-		required: 'Provider is required'
-	},
-	providerData: {},
-	additionalProvidersData: {},
 	roles: {
 		type: [{
 			type: String,
-			enum: ['user', 'admin']
+			enum: {values: ['usuario', 'administrador', 'gerencia'],
+				   message: "El rol enviado no esta registrado"
+				  }
 		}],
-		default: ['user']
+		default: ['usuario']
 	},
 	updated: {
 		type: Date
