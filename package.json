@@ -1,0 +1,41 @@
+{
+  "name": "onboardingcr",
+  "version": "0.0.1",
+  "description": "Api de la aplicacion Onboarding CR realizado en Node JS",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fremeva/onboardingcr.git"
+  },
+  "keywords": [
+    "Onboarding",
+    "CruzRoja"
+  ],
+  "author": "Fredy Mendoza",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/fremeva/onboardingcr/issues"
+  },
+  "homepage": "https://github.com/fremeva/onboardingcr#readme",
+  "dependencies": {
+    "body-parser": "^1.15.1",
+    "bower": "^1.7.9",
+    "chalk": "^1.1.3",
+    "compression": "^1.6.2",
+    "connect-mongo": "^1.2.0",
+    "cookie-parser": "^1.4.3",
+    "express": "^4.13.4",
+    "express-session": "^1.13.0",
+    "glob": "^7.0.3",
+    "helmet": "^2.1.0",
+    "lodash": "^4.13.1",
+    "method-override": "^2.3.6",
+    "mongoose": "^4.4.19",
+    "morgan": "^1.7.0",
+    "passport": "^0.3.2",
+    "passport-local": "^1.0.0"
+  }
+}
