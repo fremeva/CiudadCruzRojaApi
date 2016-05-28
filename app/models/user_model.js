@@ -46,7 +46,6 @@ var UserSchema = new Schema({
 	},
 	usuario: {
 		type: String,
-		unique: 'testing error message',
 		required: 'Please fill in a username',
 		trim: true
 	},
@@ -54,6 +53,9 @@ var UserSchema = new Schema({
 		type: String,
 		default: '',
 		validate: [validateLocalStrategyPassword, 'Password should be longer']
+	},
+	salt: {
+		type: String
 	},
 	roles: {
 		type: [{

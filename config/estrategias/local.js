@@ -9,7 +9,6 @@ var passport = require('passport'),
 
 module.exports = function() {
 	// Use local strategy
-	console.log("AQUIIIIIIIIIIIIIIIIIIIIIIII");
 	passport.use(new LocalStrategy({
 			usernameField: 'usuario',
 			passwordField: 'password'
@@ -27,8 +26,11 @@ module.exports = function() {
 					});
 				}
 				if (!user.authenticate(password)) {
+					console.log(password);
+					console.log("-------------------");
+					console.log(user.password);
 					return done(null, false, {
-						message: 'Unknown user or invalid password'
+						message: 'Unknown invalid password'
 					});
 				}
 

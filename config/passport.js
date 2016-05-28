@@ -18,13 +18,15 @@ module.exports = function () {
 	});
 
 	passport.deserializeUser(function (id, done) {
-		User.findById(id, function (err, user) {
+		User.findOne({
+			_id: id
+		}, '-salt -password', function(err, user) {
 			done(err, user);
 		});
 	});
 
 	// Initialize strategies
-	config.getGlobbedFiles('./config/strategies/**/*.js').forEach(function (strategy) {
+	config.getGlobbedFiles('./config/estrategias/**/*.js').forEach(function (strategy) {
 		require(path.resolve(strategy))();
 	});
 };

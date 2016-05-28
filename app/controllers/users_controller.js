@@ -16,6 +16,9 @@ exports.findById = function (req, res) {
 	Usuarios.findById(req.params.id, function (err, usuario) {
 		if (err) return res.send(500, err.message);
 
+		usuario.password = undefined;
+		usuario.salt = undefined;
+
 		console.log('GET /usuarios/' + req.params.id);
 		res.status(200).json(usuario);
 	});

@@ -2,7 +2,7 @@ var _ = require('lodash'),
 	errorHandler = require('./error_controller'),
 	mongoose = require('mongoose'),
 	passport = require('passport'),
-	Usuarios = mongoose.model('User');
+	User = mongoose.model('User');
 
 
 //POST - Registra un usuario
@@ -45,7 +45,7 @@ exports.login = function(req, res, next) {
 		} else {
 			// Remove sensitive data before login
 			user.password = undefined;
-			//user.salt = undefined;
+			user.salt = undefined;
 
 			req.login(user, function(err) {
 				if (err) {
@@ -63,6 +63,7 @@ exports.login = function(req, res, next) {
  */
 exports.logout = function(req, res) {
 	req.logout();
+	res.json({mensaje: "cerrada la sesion"});
 	//res.redirect('/');
 };
 
